@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作業 1 | 使用者切換器</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+      @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body{
+        font-family: "Source Code Pro", sans-serif;
+        background-color: #f0f9ff;
+      }
+
+      .container{
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      h1{
+        margin: 20px 0;
+        color: #005b90;
+      }
+
+      .card{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 5px;
+        padding: 40px;
+        background-color: #d2eeff;
+        margin-bottom: 20px;
+        box-shadow: 1px 2px 5px rgba(0,0,0,0.3);
+      }
+
+      .image{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 20px;
+        background-image: url("https://randomuser.me/api/portraits/men/12.jpg");
+        background-position: center;
+        background-size: contain;
+      }
+
+      .buttons{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        & button{
+          padding: 4px 8px;
+          background-color: #a0dcff;
+          color: #005b90;
+          font-size: 20px;
+          border: none;
+          border-radius: 2px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          &:hover{
+            background-color: #005b90;
+            color: #fff;
+            transform: scale(1.2);
+          }
+        }
+      }
+
+      .info{
+        list-style: none;
+        & li{
+          margin-bottom: 10px;
+          & h2{
+            font-size: 20px;
+            color: #005b90;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>使用者切換器</h1>
+      <div class="card">
+        <div class="image"></div>
+        <ul class="info">
+          <li>
+            <h2>Name</h2>
+            <p>Devon Craig</p>
+          </li>
+          <li>
+            <h2>Email</h2>
+            <p>devon.craig@example.com</p>
+          </li>
+        </ul>
+      </div>
+      <div class="buttons">
+        <button class="prev"><i class="bi bi-caret-left-fill"></i></button>
+        <button class="next"><i class="bi bi-caret-right-fill"></i></button>
+      </div>
+    </div>
+    
+
+
+
+    <script>
+      // 整理至少五個使用者，變成一個陣列
+      // 在頁面一進來，會顯示你整理的第一個使用者的資料
+      // 會有兩個按鈕切換上下一個使用者
+      const users = [
+        { name: "Devon Craig", email:"devon.craig@example.com", picture:"	https://randomuser.me/api/portraits/men/12.jpg"},
+        { name: "Nicholas Garrett", email:"nicholas.garrett@example.com", picture:"	https://randomuser.me/api/portraits/men/18.jpg"},
+        { name: "Fred Rose", email:"fred.rose@example.com", picture:"	https://randomuser.me/api/portraits/men/93.jpg"},
+        { name: "Jackson Meyer", email:"jackson.meyer@example.com", picture:"	https://randomuser.me/api/portraits/men/2.jpg"},
+        { name: "Johnny Mitchelle", email:"johnny.mitchelle@example.com", picture:"	https://randomuser.me/api/portraits/men/70.jpg"},
+      ];
+
+      let currentIndex = 0;
+      const card = document.querySelector(".card");
+      const prevButton = document.querySelector(".prev");
+      const nextButton = document.querySelector(".next");
+
+      prevButton.addEventListener("click", () => {
+        
+      })
+
+      nextButton.addEventListener("click", () => {
+        
+      })
+
+    </script>
+  </body>
+</html>
