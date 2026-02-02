@@ -53,7 +53,7 @@
         border-radius: 50%;
         overflow: hidden;
         margin-bottom: 20px;
-        background-image: url("https://randomuser.me/api/portraits/men/12.jpg");
+        /* background-image: url("https://randomuser.me/api/portraits/men/12.jpg"); */
         background-position: center;
         background-size: contain;
       }
@@ -96,7 +96,7 @@
     <div class="container">
       <h1>使用者切換器</h1>
       <div class="card">
-        <div class="image"></div>
+        <div class="image" style="background-image: url('https://randomuser.me/api/portraits/men/12.jpg');"></div>
         <ul class="info">
           <li>
             <h2>Name</h2>
@@ -134,13 +134,46 @@
       const prevButton = document.querySelector(".prev");
       const nextButton = document.querySelector(".next");
 
+      console.log(card.innerHTML);
+      
+
       prevButton.addEventListener("click", () => {
-        
+        if(currentIndex == 0) {
+          currentIndex = users.length - 1;
+        } else{
+          currentIndex--;
+        }
+        renderUser(currentIndex);
       })
 
       nextButton.addEventListener("click", () => {
-        
+        if(currentIndex == users.length - 1) {
+          currentIndex = 0;
+        }else {
+          currentIndex++;
+        }
+        renderUser(currentIndex);
       })
+
+
+      function renderUser(index){
+        const user = users[index];
+        console.log(index);
+        
+        card.innerHTML = `
+        <div class="image" style="background-image: url(${user.picture});"></div>
+        <ul class="info">
+          <li>
+            <h2>Name</h2>
+            <p>${user.name}</p>
+          </li>
+          <li>
+            <h2>Email</h2>
+            <p>${user.email}</p>
+          </li>
+        </ul>
+        `;
+      }
 
     </script>
   </body>
