@@ -60,6 +60,14 @@
           }
         }
       }
+
+      .gold-bg {
+        background-color: gold;
+      }
+
+      .red-text {
+        color: red;
+      }
     </style>
   </head>
   <body>
@@ -73,8 +81,10 @@
             <div class="col">costB</div>
             <div class="col">costC</div>
             <div class="col">costD</div>
+            <div class="col">平均分數</div>
+            <div class="col">排名</div>
           </div>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col">1</div>
             <div class="col">吳穎伯</div>
             <div class="col">90</div>
@@ -129,7 +139,7 @@
             <div class="col">28</div>
             <div class="col">60</div>
             <div class="col">67</div>
-          </div>
+          </div> -->
         </div>
       </article>
     </section>
@@ -139,6 +149,67 @@
       // 滿分的部份底色加上金黃色
       // 加上平均分數的欄位，及平均分數的內容
       // 加上排名的欄位，及排名的內容
+      const container = document.querySelector(".container");
+      const students = [
+        { id: 1, name: "吳穎伯", scores: [90, 80, 95, 90] },
+        { id: 2, name: "王家佑", scores: [95, 88, 58, 93] },
+        { id: 3, name: "洪奕銘", scores: [52, 65, 76, 45] },
+        { id: 4, name: "許佳伶", scores: [88, 76, 81, 60] },
+        { id: 5, name: "王佩芸", scores: [100, 100, 100, 100] },
+        { id: 6, name: "林奎聖", scores: [85, 80, 89, 90] },
+        { id: 7, name: "張剛皓", scores: [35, 28, 60, 67] },
+      ];
+
+      
+
+      students.forEach((student) => {
+        student.sum = student.scores.reduce((sum, score) => sum + score, 0);
+        student.avg = student.scores.length === 0 ? 0 : student.sum / student.scores.length;
+        
+      })
+
+
+
+      students.sort((a, b) => b.sum - a.sum);
+
+      students.forEach((student, index) => {
+        student.rank = index + 1;
+      });
+
+      students.sort((a, b) => a.id - b.id);
+
+
+      students.forEach((student) => {
+        renderRow(student);
+      });
+      
+
+      function renderRow(student){
+        let node = document.createElement("div");
+        node.className = "row";
+        node.innerHTML = `
+          <div class="col">${student.id}</div>
+          <div class="col">${student.name}</div>
+          <div class="col">${student.scores[0]}</div>
+          <div class="col">${student.scores[1]}</div>
+          <div class="col">${student.scores[2]}</div>
+          <div class="col">${student.scores[3]}</div>
+          <div class="col">${student.avg}</div>
+          <div class="col">第 ${student.rank} 名</div>
+        `;
+        container.append(node);
+      }
+
+      function fullScoreMark(){
+
+      }
+      function failedScoreMark(){
+        
+      }
+
+
+
+
     </script>
   </body>
 </html>
